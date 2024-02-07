@@ -6,7 +6,6 @@ const containerHeight = 600;
 // Size of filllerSize is -2 because of the 1px borders on sides, otherwise it overflows
 let fillerSize = containerWidth / rowSize - 2
 
-//prompt('Hello user!');
 let container = document.querySelector('.container');
 let promptButton = document.querySelector('button');
 
@@ -41,6 +40,7 @@ function createField() {
 
 
 
+/* Node removal function using forloop
 function removeFields() {
     for(let i = 0; i < totalValue; i++) {
         let nodeRemoval = document.querySelector('.fill');
@@ -48,4 +48,12 @@ function removeFields() {
     };
 
 
+}*/
+
+// Node removal function using querySelectorAll and forEach method
+function removeFields() {
+    let nodeRemoval = document.querySelectorAll('.fill');
+    nodeRemoval.forEach((node) => {
+        container.removeChild(node);
+    });
 }
