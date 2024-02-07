@@ -35,6 +35,9 @@ function progressiveDarkening() {
         fill.classList.add("fill");
         fill.style.height = `${fillerSize}px`;
         fill.style.width = `${fillerSize}px`;
+        fill.style.margin = '0px'
+        fill.style.padding = '0px'
+        fill.style.border = '0px'
         let red = 255;
         let green = 255;
         let yellow = 255;
@@ -70,6 +73,9 @@ function createField() {
         fill.classList.add("fill");
         fill.style.height = `${fillerSize}px`;
         fill.style.width = `${fillerSize}px`;
+        fill.style.margin = '0px';
+        fill.style.padding = '0px';
+        fill.style.border = '0px';
         let red = colorRandomizer();
         let green = colorRandomizer();
         let yellow = colorRandomizer();
