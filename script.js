@@ -9,7 +9,7 @@ let fillerSize = containerWidth / rowSize - 2
 let container = document.querySelector('.container');
 let promptButton = document.querySelector('button');
 
-createField();
+progressiveDarkening();
 
 
 promptButton.addEventListener('click', () => {
@@ -19,26 +19,48 @@ promptButton.addEventListener('click', () => {
     collumnSize = size;
     totalValue = rowSize * collumnSize
     fillerSize = containerWidth / rowSize - 2
-    createField();
+    progressiveDarkening();
 });
 
+/* Random colors on hover (extra points 1)
 function createField() {
     for(let i = 0; i < totalValue; i++) {
         let fill = document.createElement('div');
         fill.classList.add("fill");
         fill.style.height = `${fillerSize}px`;
         fill.style.width = `${fillerSize}px`;
+        let red = colorRandomizer();
+        let green = colorRandomizer();
+        let yellow = colorRandomizer();
         fill.addEventListener('mouseenter', () => {
-            fill.style.backgroundColor = 'blue';
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
         });
         fill.addEventListener('mouseleave', () => {
             fill.style.backgroundColor = 'white';
         });
         container.appendChild(fill);
     };
+}; */
+
+function progressiveDarkening() {
+    for(let i = 0; i < totalValue; i++) {
+        let fill = document.createElement('div');
+        fill.classList.add("fill");
+        fill.style.height = `${fillerSize}px`;
+        fill.style.width = `${fillerSize}px`;
+        let red = 255;
+        let green = 255;
+        let yellow = 255;
+        fill.addEventListener('mouseenter', () => {
+            red -= 25.5;
+            green -= 25.5;
+            yellow -= 25.5;
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
+
+        });
+        container.appendChild(fill);
+    };
 }
-
-
 
 /* Node removal function using forloop
 function removeFields() {
@@ -56,4 +78,9 @@ function removeFields() {
     nodeRemoval.forEach((node) => {
         container.removeChild(node);
     });
+}
+
+function colorRandomizer() {
+   let number = Math.floor(Math.random()* 256);
+   return number;
 }

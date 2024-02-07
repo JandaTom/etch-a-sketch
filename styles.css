@@ -22,3 +22,10 @@ body {
 .fill {
     border: 1px solid black;
 }
+
+button {
+    margin-top: 20px;
+    font-size: 25px;
+    border: 3px solid rgb(255, 0, 0);
+
+}
