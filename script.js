@@ -24,7 +24,7 @@ promptButton.addEventListener('click', () => {
     rowSize = size;
     collumnSize = size;
     totalValue = rowSize * collumnSize
-    fillerSize = containerWidth / rowSize - 2
+    fillerSize = containerWidth / rowSize
     progressiveDarkening();
 });
 
