@@ -61,7 +61,14 @@ button {
     font-family: var(--font);
     border-radius: 10px;
     margin-right: 10px;
+}
 
+button:hover {
+    background-color: aqua;
+}
+
+button:active {
+    background-color: rgb(45, 45, 201);
 }
 
 input {
