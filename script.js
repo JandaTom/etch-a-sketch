@@ -1,6 +1,5 @@
 /*Potential improvements to implement: 
 1. Verify user input
-2. Add reset button (and implement reset function)
 */ 
 
 let rowSize = 20;
@@ -9,22 +8,24 @@ let totalValue = rowSize * collumnSize;
 const containerWidth = 600;
 const containerHeight = 600;
 
-// Size of filllerSize is -2 because of the 1px borders on sides, otherwise it overflows
 let fillerSize = containerWidth / rowSize
 
-let container = document.querySelector('.container');
-let promptButton = document.querySelector('#resizeButton');
-let resetButton = document.querySelector('#resetButton');
-let randomizerButton = document.querySelector('#randomizedColors');
-let selector = document.querySelector('input');
+const container = document.querySelector('.container');
+const promptButton = document.querySelector('#resizeButton');
+const resetButton = document.querySelector('#resetButton');
+const randomizerButton = document.querySelector('#randomizedColors');
+const selector = document.querySelector('input');
+const headerColors = document.querySelectorAll('.random-header');
+
 
 createField();
 randomizedColor();
 userCustomColour();
+randomizeLetterColor();
 
 promptButton.addEventListener('click', () => {
     removeFields();
-    size = parseInt(prompt('Define row size (integer from 1 to 100).'));
+    size = parseInt(prompt('Define row size (number from 1 to 100, numbers over 100 may cause performance issues).'));
     rowSize = size;
     collumnSize = size;
     totalValue = rowSize * collumnSize
@@ -116,15 +117,15 @@ function randomizedColor() {
         fill.addEventListener('mouseenter', () => {
             let red = colorRandomizer();
             let green = colorRandomizer();
-            let yellow = colorRandomizer();
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
+            let blue = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         });
 
         fill.addEventListener('touchmove', () => {
             let red = colorRandomizer();
             let green = colorRandomizer();
-            let yellow = colorRandomizer();
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
+            let blue = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         });
     });
 };
@@ -154,6 +155,22 @@ function userCustomColour() {
         });
     });
     
+};
+
+function randomizeLetterColor() {
+    headerColors.forEach((letter) => {
+        letter.addEventListener('mouseenter', () => {
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let blue = colorRandomizer();
+            letter.style.color = `rgb(${red}, ${green}, ${blue})`;
+            letter.style.fontSize = '40px';
+        });
+
+        letter.addEventListener('mouseleave', () => {
+            letter.style.fontSize = '32px';
+        });
+    });
 };
 
 /* Node removal function using forloop
