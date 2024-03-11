@@ -10,7 +10,19 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <button type="button">Define field size</button>
+    <div class="header"><h1>Welcome to <span class="red">E</span><span class="blue">t</span><span class="purple">ch</span> <span class="blue">A</span> <span class="green">S</span><span class="red">k</span><span class="orange">e</span><span class="blue">t</span><span class="green">ch</span></h1></div>
+
+    <div class="controlButtons">
+        <button type="button" id="resizeButton">Define row size</button>
+        <button type="button" id="resetButton">Reset</button>
+    </div>
+
+    <div class="colorSelectors">
+        <button type="button" id="randomizedColors">Randomize each</button>
+        <input type="color" id="userColorSelector" head="userColorSelector">
+        <label for="userColorSelector">Pick a color</label>
+    </div>
+
     <div class="container"></div>
 
 </body>

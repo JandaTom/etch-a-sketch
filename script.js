@@ -13,10 +13,14 @@ const containerHeight = 600;
 let fillerSize = containerWidth / rowSize
 
 let container = document.querySelector('.container');
-let promptButton = document.querySelector('button');
+let promptButton = document.querySelector('#resizeButton');
+let resetButton = document.querySelector('#resetButton');
+let randomizerButton = document.querySelector('#randomizedColors');
+let selector = document.querySelector('input');
 
-progressiveDarkening();
-
+createField();
+randomizedColor();
+userCustomColour();
 
 promptButton.addEventListener('click', () => {
     removeFields();
@@ -25,32 +29,45 @@ promptButton.addEventListener('click', () => {
     collumnSize = size;
     totalValue = rowSize * collumnSize
     fillerSize = containerWidth / rowSize
-    progressiveDarkening();
+    createField();
+    userCustomColour();
 });
 
-// Each interaction makes the fields 10% darker - bonus exercise 2 
-function progressiveDarkening() {
-    for(let i = 0; i < totalValue; i++) {
-        let fill = document.createElement('div');
-        fill.classList.add("fill");
-        fill.style.height = `${fillerSize}px`;
-        fill.style.width = `${fillerSize}px`;
-        fill.style.margin = '0px'
-        fill.style.padding = '0px'
-        fill.style.border = '0px'
-        let red = 255;
-        let green = 255;
-        let yellow = 255;
-        fill.addEventListener('mouseenter', () => {
-            red -= 25.5;
-            green -= 25.5;
-            yellow -= 25.5;
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
+resetButton.addEventListener ('click', () => {
+    softReset();
+});
 
-        });
-        container.appendChild(fill);
-    };
-};
+randomizerButton.addEventListener ('click', () => {
+    randomizedColor();
+});
+
+// selector.addEventListener('click', () => {
+//     userCustomColour();
+// })
+
+// Each interaction makes the fields 10% darker - bonus exercise 2 
+// function progressiveDarkening() {
+//     for(let i = 0; i < totalValue; i++) {
+//         let fill = document.createElement('div');
+//         fill.classList.add("fill");
+//         fill.style.height = `${fillerSize}px`;
+//         fill.style.width = `${fillerSize}px`;
+//         fill.style.margin = '0px'
+//         fill.style.padding = '0px'
+//         fill.style.border = '0px'
+//         let red = 255;
+//         let green = 255;
+//         let yellow = 255;
+//         fill.addEventListener('mouseenter', () => {
+//             red -= 25.5;
+//             green -= 25.5;
+//             yellow -= 25.5;
+//             fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
+
+//         });
+//         container.appendChild(fill);
+//     };
+// };
 
 // Node removal function using querySelectorAll and forEach method
 function removeFields() {
@@ -66,7 +83,7 @@ function colorRandomizer() {
 };
 
 
-/* Random colors on hover - bonus exercise 1
+// Random colors on hover - bonus exercise 1
 function createField() {
     for(let i = 0; i < totalValue; i++) {
         let fill = document.createElement('div');
@@ -76,18 +93,68 @@ function createField() {
         fill.style.margin = '0px';
         fill.style.padding = '0px';
         fill.style.border = '0px';
-        let red = colorRandomizer();
-        let green = colorRandomizer();
-        let yellow = colorRandomizer();
-        fill.addEventListener('mouseenter', () => {
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
+        container.appendChild(fill);
+       /*   Fallback solution, mouseleave event for case user wants to create a trail
+            fill.addEventListener('mouseenter', () => {
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let yellow = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
         });
+        
+        
         fill.addEventListener('mouseleave', () => {
             fill.style.backgroundColor = 'white';
         });
-        container.appendChild(fill);
+        container.appendChild(fill); */
     };
-}; */
+};
+
+function randomizedColor() {
+    let field = document.querySelectorAll('.fill');
+    field.forEach((fill) => {
+        fill.addEventListener('mouseenter', () => {
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let yellow = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
+        });
+
+        fill.addEventListener('touchmove', () => {
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let yellow = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
+        });
+    });
+};
+
+function softReset() {
+    let field = document.querySelectorAll('.fill');
+    field.forEach((fill) => {
+        fill.style.backgroundColor = `rgb(255, 255, 255)`;
+    });
+};
+
+function userCustomColour() {
+    let field = document.querySelectorAll('.fill');
+    let selector = document.querySelector('input');
+    selector.addEventListener('click', () => {
+        field.forEach((fill) => {
+            fill.addEventListener('mouseenter', () => {
+                fill.style.backgroundColor = selector.value;
+            });
+        });
+    });
+    selector.addEventListener('change', () => {
+        field.forEach((fill) => {
+            fill.addEventListener('mouseenter', () => {
+                fill.style.backgroundColor = selector.value;
+            });
+        });
+    });
+    
+};
 
 /* Node removal function using forloop
 function removeFields() {

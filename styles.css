@@ -1,3 +1,10 @@
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+
+:root {
+    --font: "Truculenta", Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -5,10 +12,36 @@ body {
     align-items: center;
     margin: 0px;
     padding: 0px;
+    font-family: var(--font);
+}
+
+.header > h1 {
+    text-decoration: underline;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.purple {
+    color: purple;
+}
+
+.orange {
+    color: orange;
 }
 
 .container {
-    margin-top: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
@@ -17,11 +50,26 @@ body {
     border: 2px solid black;
     width: 600px;
     height: 600px;
+    touch-action: none; /*disables ability to scroll when touching inside the container */
 }
 
 button {
     margin-top: 20px;
     font-size: 25px;
-    border: 3px solid rgb(255, 0, 0);
+    border: 3px solid black;
+    font-family: var(--font);
+    border-radius: 10px;
+    margin-right: 10px;
 
+}
+
+input {
+    margin-top: 20px;
+    background-color: black;
+    height: 35px;
+    width: 75px;
+}
+
+label {
+    font-size: 25px;
 }
