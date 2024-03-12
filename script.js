@@ -168,7 +168,7 @@ function userCustomColour() {
             });
 
             fill.addEventListener('mouseup', () => {
-                mouseIsDown = false
+                mouseIsDown = false;
             });
 
             fill.addEventListener('mouseenter', () => {
@@ -189,7 +189,7 @@ function userCustomColour() {
             });
 
             fill.addEventListener('mouseup', () => {
-                mouseIsDown = false
+                mouseIsDown = false;
             });
 
             fill.addEventListener('mouseenter', () => {
