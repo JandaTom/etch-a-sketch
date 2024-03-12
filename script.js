@@ -43,33 +43,7 @@ randomizerButton.addEventListener ('click', () => {
     randomizedColor();
 });
 
-// selector.addEventListener('click', () => {
-//     userCustomColour();
-// })
 
-// Each interaction makes the fields 10% darker - bonus exercise 2 
-// function progressiveDarkening() {
-//     for(let i = 0; i < totalValue; i++) {
-//         let fill = document.createElement('div');
-//         fill.classList.add("fill");
-//         fill.style.height = `${fillerSize}px`;
-//         fill.style.width = `${fillerSize}px`;
-//         fill.style.margin = '0px'
-//         fill.style.padding = '0px'
-//         fill.style.border = '0px'
-//         let red = 255;
-//         let green = 255;
-//         let yellow = 255;
-//         fill.addEventListener('mouseenter', () => {
-//             red -= 25.5;
-//             green -= 25.5;
-//             yellow -= 25.5;
-//             fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
-
-//         });
-//         container.appendChild(fill);
-//     };
-// };
 
 // Node removal function using querySelectorAll and forEach method
 function removeFields() {
@@ -96,19 +70,7 @@ function createField() {
         fill.style.padding = '0px';
         fill.style.border = '0px';
         container.appendChild(fill);
-       /*   Fallback solution, mouseleave event for case user wants to create a trail
-            fill.addEventListener('mouseenter', () => {
-            let red = colorRandomizer();
-            let green = colorRandomizer();
-            let yellow = colorRandomizer();
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
-        });
-        
-        
-        fill.addEventListener('mouseleave', () => {
-            fill.style.backgroundColor = 'white';
-        });
-        container.appendChild(fill); */
+       
     };
 };
 
@@ -231,3 +193,45 @@ function removeFields() {
 
 
 }*/
+
+// selector.addEventListener('click', () => {
+//     userCustomColour();
+// })
+
+// Each interaction makes the fields 10% darker - bonus exercise 2 
+// function progressiveDarkening() {
+//     for(let i = 0; i < totalValue; i++) {
+//         let fill = document.createElement('div');
+//         fill.classList.add("fill");
+//         fill.style.height = `${fillerSize}px`;
+//         fill.style.width = `${fillerSize}px`;
+//         fill.style.margin = '0px'
+//         fill.style.padding = '0px'
+//         fill.style.border = '0px'
+//         let red = 255;
+//         let green = 255;
+//         let yellow = 255;
+//         fill.addEventListener('mouseenter', () => {
+//             red -= 25.5;
+//             green -= 25.5;
+//             yellow -= 25.5;
+//             fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`
+
+//         });
+//         container.appendChild(fill);
+//     };
+// };
+
+/*   Fallback solution, mouseleave event for case user wants to create a trail
+            fill.addEventListener('mouseenter', () => {
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let yellow = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${yellow})`;
+        });
+        
+        
+        fill.addEventListener('mouseleave', () => {
+            fill.style.backgroundColor = 'white';
+        });
+        container.appendChild(fill); */
