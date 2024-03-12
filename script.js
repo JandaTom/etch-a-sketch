@@ -113,20 +113,34 @@ function createField() {
 
 function randomizedColor() {
     let field = document.querySelectorAll('.fill');
+    let mouseIsDown = false;
     field.forEach((fill) => {
-        fill.addEventListener('mouseenter', () => {
-            let red = colorRandomizer();
-            let green = colorRandomizer();
-            let blue = colorRandomizer();
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+        fill.addEventListener('mousedown', () => {
+            mouseIsDown = true;
         });
 
-        fill.addEventListener('touchmove', () => {
-            let red = colorRandomizer();
-            let green = colorRandomizer();
-            let blue = colorRandomizer();
-            fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        fill.addEventListener('mouseup', () => {
+            mouseIsDown = false;
         });
+
+        fill.addEventListener('mouseenter', () => {
+            if(mouseIsDown == true) {
+                let red = colorRandomizer();
+                let green = colorRandomizer();
+                let blue = colorRandomizer();
+                fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            
+            };
+        });
+
+        fill.addEventListener('touchstart', () => {
+            let red = colorRandomizer();
+                let green = colorRandomizer();
+                let blue = colorRandomizer();
+                fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        });
+        
     });
 };
 
@@ -140,16 +154,45 @@ function softReset() {
 function userCustomColour() {
     let field = document.querySelectorAll('.fill');
     let selector = document.querySelector('input');
+    let mouseIsDown = false;
     selector.addEventListener('click', () => {
         field.forEach((fill) => {
+            fill.addEventListener('mousedown', () => {
+                mouseIsDown = true;
+            });
+
+            fill.addEventListener('mouseup', () => {
+                mouseIsDown = false
+            });
+
             fill.addEventListener('mouseenter', () => {
+                if (mouseIsDown == true){
+                    fill.style.backgroundColor = selector.value;
+                }
+            });
+
+            fill.addEventListener('touchstart', () => {
                 fill.style.backgroundColor = selector.value;
             });
         });
     });
     selector.addEventListener('change', () => {
         field.forEach((fill) => {
+            fill.addEventListener('mousedown', () => {
+                mouseIsDown = true;
+            });
+
+            fill.addEventListener('mouseup', () => {
+                mouseIsDown = false
+            });
+
             fill.addEventListener('mouseenter', () => {
+                if (mouseIsDown == true){
+                    fill.style.backgroundColor = selector.value;
+                }
+            });
+
+            fill.addEventListener('touchstart', () => {
                 fill.style.backgroundColor = selector.value;
             });
         });
