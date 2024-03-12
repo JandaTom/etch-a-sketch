@@ -44,6 +44,11 @@ I am using Flexbox feature 'flex' to ensure, that container si filled both horiz
 
 Next is the 'painting' feature, that is created by tracking through a variable whether user is holding mousebutton down or not, and if it is, I am tracking user entering the beforehand created empty divs and change their color accordingly based on user preference (random selection, or own selection from color-picker).
 
+## Known bugs:
+
+1. Sometimes, when holding mouse button down, browser decides, that user intention is not to draw, but to drag. This causes a trigger in the code and makes the mouse paint just by hovering over.
+To reset this, click twice and the app should work as intended again. 
+
 
 
 
