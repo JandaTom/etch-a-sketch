@@ -1,5 +1,6 @@
 /*Potential improvements to implement: 
 1. Verify user input
+2. Make app mobile friendly
 */ 
 
 let rowSize = 20;
@@ -118,6 +119,10 @@ function randomizedColor() {
 
         fill.addEventListener('mousedown', () => {
             mouseIsDown = true;
+            let red = colorRandomizer();
+            let green = colorRandomizer();
+            let blue = colorRandomizer();
+            fill.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         });
 
         fill.addEventListener('mouseup', () => {
@@ -159,6 +164,7 @@ function userCustomColour() {
         field.forEach((fill) => {
             fill.addEventListener('mousedown', () => {
                 mouseIsDown = true;
+                fill.style.backgroundColor = selector.value;
             });
 
             fill.addEventListener('mouseup', () => {
