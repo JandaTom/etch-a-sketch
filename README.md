@@ -7,7 +7,23 @@ Link to run the web app: [Link](https://jandatom.github.io/etch-a-sketch/)
 
 **Running your mouse over colorful heading recommended. ;)**
 
-If you are going to run the app, **please do so on a computer or laptop with a mouse/touchpad**, as drawing using touch is not fully implemented yet. On mobile phone, only taping single squares is implemented so far, due to difficulty with tracking the user finger drag across multiple elements on the screen.
+If you are going to run the app, **please do so on a computer or laptop with a mouse/touchpad**, as drawing using touch is not fully supported yet. On mobile phone, only taping single squares is supported so far, due to difficulty with tracking the user finger drag across multiple elements on the screen.
+
+## Instructions
+
+**As mentioned above, running the application on computer or laptop with touchpad or mouse is highly recommended.** 
+The application will load with a drawing grid of 20x20, but that can be adjusted using by clicking the 'Define row size' button and entering a valid number. Please note that upon putting in invalid values, the grid will disappear until valid grid is defined using the same button again. 
+If you decide to change the grid size, it will have the same total size, only the 'pixels' will get smaller and more of them will be pushed inside. 
+
+**Defining new grid size also turns off selected colors, so user needs to make a selection again after doing so.**
+On the other hand, just reseting your current grid will keep the last option that you had selected.
+
+**To draw inside, just place your cursor on desired postition, hold primary mouse button down and move your mouse.**
+
+Clicking on the 'Random colors!' button will randomize color of each field.
+Selecting your own color from the color picker will constantly keep the selected colour.
+
+Enjoy and have fun!
 
 ## Description
 
